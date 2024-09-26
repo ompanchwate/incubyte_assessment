@@ -40,4 +40,12 @@ describe('Library Management System', () => {
         expect(library.getAvailableBooks().length).toBe(1);
     });
 
+    // Viewing the book
+    it('should view all available books in the library', () => {
+        const book1 = new Book('1001', 'The Secret', 'Om Panchwate', 2024);
+        const book2 = new Book('1002', 'Life Amazing Secret', 'Gaur Gopal Das', 2022);
+        library.addBook(book1);
+        library.addBook(book2);
+        expect(library.getAvailableBooks().length).toBe(2);
+    });
 });

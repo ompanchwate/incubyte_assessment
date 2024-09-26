@@ -30,5 +30,5 @@ export class Library {
       throw new Error('Invalid return');
     }
     book.available = true;
-  }
+  } 
 }
