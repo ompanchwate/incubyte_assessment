@@ -13,4 +13,13 @@ export class Library {
   getAvailableBooks(): Book[] {
     return Array.from(this.books.values()).filter(book => book.available);
   }
+
+  // borrow book
+  borrowBook(isbn: string): void {
+    const book = this.books.get(isbn);
+    if (!book || !book.available) {
+      throw new Error('Book not available');
+    }
+    book.available = false; // make the book unavailable
+  }
 }
