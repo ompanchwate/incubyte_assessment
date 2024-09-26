@@ -22,5 +22,14 @@ describe('Library Management System', () => {
     library.borrowBook('1001');
     expect(library.getAvailableBooks().length).toBe(0);
   });
+
+// handling unavailable books
+  it('should throw an error when borrowing a non-existent or unavailable book', () => {
+    const book = new Book('1001', 'The Secret', 'Om Panchwate', 2024);
+    library.addBook(book);
+    library.borrowBook('1001'); // Now the book is unavailable
+    expect(() => library.borrowBook('1001')).toThrow('Book not available');
+  });
+  
   
 });
