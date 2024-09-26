@@ -22,4 +22,13 @@ export class Library {
     }
     book.available = false; // make the book unavailable
   }
+
+  // return book
+  returnBook(isbn: string): void {
+    const book = this.books.get(isbn);
+    if (!book || book.available) {
+      throw new Error('Invalid return');
+    }
+    book.available = true;
+  }
 }
